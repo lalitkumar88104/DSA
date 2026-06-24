@@ -218,7 +218,57 @@ void p19(int n){
 }
 
 void p20(int n){
+    for (int i=1 ; i<= 2*n-1 ; i++) {
+        // star
+        int star = i;
+        if (i > n ) star = 2*n -i;
+        for (int j =1 ; j<= star; j++){
+            cout<< "*";
+        }
+        // space 
+        int space = 2*(n-i);                //
+        if ( space < 0) {                   // we can use this also instead 
+            space = space + (-2* space);    //int space = 2 * abs(n - i);
+        }                                   //              
+        for (int j =1 ; j<=space ; j++){
+            cout << " ";
+        }
+
+        // star
+       
     
+        for (int j =1 ; j<= star; j++){
+            cout<< "*";
+        }
+        cout << endl;
+    }
+}
+
+void p21(int n){
+for (int i = 1 ; i <= n ;i++){
+    
+   for (int j =1 ; j<=n ; j++){
+    if ( i == 1 || i == n || j == 1 || j == n ){
+        cout << "*";
+    }
+    else{
+        cout<< " ";
+    }}
+    cout<< endl;
+}
+}
+
+void p22(int n){
+    for (int i =0 ; i<2*n-1 ; i++){
+        for (int j= 0 ; j<2*n-1 ; j++){
+            int top = i;
+            int left = j;
+            int bottom = (2*n -2) -i;
+            int right = (2*n- 2)-j;
+            cout << (n-min(min ( top , bottom),min(left,right)));
+        }
+        cout << endl ;
+    }
 }
 
 int main (){
@@ -227,7 +277,7 @@ cin >> t;
 for(int i = 0 ; i< t ; i++){
     int n ;
     cin >> n;
-    p20(n);
+    p22(n);
 }
     return 0;
 }
