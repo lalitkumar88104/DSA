@@ -30,7 +30,24 @@ advance (y,3); // you can use same iterator as many time you want
 
 set<int>::iterator it = s.find(97);
 cout << *it << endl ;
-cout  << s.count(100);
+cout  << s.count(100)<< endl;
+
+
+// special fun for set : Lower bound and Upper bound
+
+for (const auto &x : s){
+    cout << x << " ";
+}cout << endl;
+
+
+
+// Lower bound
+auto itt = s.lower_bound(5);   // give iterator of value if present or next value if not
+cout << *itt << endl ;
+
+// Upper bound
+auto ind = s.upper_bound(87);  // gives always 1 greater value ehat u search either is present in set or not 
+cout << *ind << endl;
 
     return 0;
 }
