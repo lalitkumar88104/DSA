@@ -18,7 +18,7 @@ s.emplace(67);
 s.erase(12);
 auto x = s.begin();
 advance(x,2);
-x = s.erase(x); // because of x= it will erase cvalue at x and points towards next value 
+x = s.erase(x); // because of x= it will erase value at x and points towards next value 
 cout << *x << endl;
 
 auto y = s.begin();
