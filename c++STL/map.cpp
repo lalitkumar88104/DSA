@@ -28,7 +28,7 @@ int main(){
 
     auto it = mp.find(12);
     if(it != mp.end()){
-        cout << it -> first << " " << it -> second ;}
+        cout << it -> first << " " << (*it).second ;}
         else{
             cout << "Invalid key";
         }
@@ -52,7 +52,7 @@ int main(){
         }
 
 
-        // Rest all fun ar same 
+        // Rest all fun ar same as .begin(), .end() , etc....
 
         cout <<"I am printing output for other fun : " << endl << mp.size() << endl ;
         cout << mp.empty() << endl << mp.count(1) << endl;
