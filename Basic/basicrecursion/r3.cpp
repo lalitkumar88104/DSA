@@ -14,11 +14,25 @@ int sum(int n){                 //sum of n no with function or non parmetarized 
     return n + sum(n-1);
 }
 
+int factorial(int n){          // factorial with non parametrized fun
+    if (n==0) return 1;
+    return n * factorial(n-1);
+}
+
+void fac(int i ,int n){
+    if (i == 0){
+        cout << n;
+        return ;
+    }
+    fac(i-1,n*i);
+}
 
 int main(){
 int n ;
 cout << "Enter the no : ";
 cin >> n ; 
-summ(n ,0);
+// summ(n ,0);
+// cout << factorial(n);
+fac(n,1);
 return 0;
 }
