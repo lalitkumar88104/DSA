@@ -4,7 +4,7 @@ using namespace std;
 void selection_sort(int arr[], int n){
     for(int i =0 ; i<= n-2 ; i++){
         int minn = i;
-        for(int k = i; k < n; k++){
+        for(int k = i+1; k < n; k++){
             // minn = min(minn , arr[k]); this is logically correct but we cant implement it as we cant swap num directly
             if(arr[minn] > arr[k]) minn = k;
         }
