@@ -91,7 +91,43 @@ for(int i = 0 ; i < n ;i++){
 }
 
 void bubble(int arr[], int n){
+for (int i=0 ; i < n-1 ; i++){
+    bool swap = false;
+    for(int k = 0 ; k < n-i-1 ;k++){
+        if(arr[k] > arr[k+1]){
+            int temp = arr[k];
+            arr[k] = arr[k+1];
+            arr[k+1] = temp;
+            swap = true;
+        }
+    }
+    if(!swap) return;
+    cout<<"run" <<" ";
+}
+}
 
+void insertion(int arr[] ,int n){
+for(int i =1 ; i<n ; i++){
+    for(int k= i ; k >=1 && arr[k] < arr[k-1] ;k--){
+        
+            int temp = arr[k];
+            arr[k] = arr[k-1];
+            arr[k-1] =temp;
+        
+    }
+}
+}
+
+void insertionshift(int arr[] , int n){
+    for (int i= 1 ; i< n ;i++){
+        int j= i;
+        int temp = arr[i];
+        while(j>=1 && temp < arr[j-1]){
+            arr[j]=arr[j-1];
+            j--;
+        }
+        arr[j] = temp;
+    }
 }
 int main(){
 int n;
@@ -99,7 +135,7 @@ cout << "Declare size of array : ";
 cin >> n ;
 int arr[n];
 for(int i = 0 ; i<n ; i++){cin >> arr[i];}
-selection(arr,n);
+insertionshift(arr,n);
 for (int i = 0 ; i<n ; i++){
     cout << arr[i] << " ";
 }
