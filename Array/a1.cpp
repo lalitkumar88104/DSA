@@ -50,6 +50,60 @@ bool sorted (int arr[] , int n){
     }
     return true;
 }
+
+int indx(int arr[] ,int n){            // bruteforce sol for removing duplicate values; tc = O(n log n + n); sc = O(n)
+    set <int> st;
+    for (int i =0 ; i<n ; i++){
+        st.insert(arr[i]);
+    }
+    int index = 0;
+    for (auto it : st){
+        arr[index] =it;
+        index++;
+    }
+    return index;
+}
+
+int unique(int arr[] , int n ){     // optimise sol for removing duplicate; tc = O(n); sc = O(1)
+    int i = 0 ;
+    int j = 0;
+    while(j<n){
+    while(arr[i]==arr[j]){
+        j++;
+    }
+    if (arr[i]!= arr[j] && j<n){
+        arr[i+1] = arr[j];
+        i++;
+        j++;
+    }
+    } return i+1;
+}
+
+int uniquee(int arr[] , int n ){    // optimise sol for removing duplicate with refine code; tc = O(n); sc = O(1)
+    int i = 0 ;
+    int j = 0;
+    if (n==0) return 0;
+    while(j<n){
+    if (arr[i]!= arr[j]){
+        arr[i+1] = arr[j];
+        i++;
+    }
+    j++;
+    } return i+1;
+}
+
+int removeDuplicates(int nums[], int n) {
+        if(n == 0) return 0;
+        int i = 0;
+        for(int j = 1 ; j < n ;j++){
+            if(nums[i]!=nums[j]){
+                nums[i+1] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
+    }
+
 int main(){
     int n ;
     cout << "enter the size of array : ";
@@ -61,6 +115,13 @@ int main(){
     // int slargest = Slargest(arr , n);
     // if (slargest == INT_MIN) cout << "no second largest avaliable" ;
     // else cout << slargest <<" I am second largest in array "<< endl;
-    cout << sorted(arr , n);
+    // cout << sorted(arr , n);
+    int index = removeDuplicates( arr ,n);
+    for (int i = 0 ; i < index; i++){
+        cout << arr[i] << " ";
+    } cout << endl;
+    for (int i = 0 ; i < n; i++){
+        cout << arr[i] << " ";
+    }
     return 0;
 }
