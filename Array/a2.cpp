@@ -64,6 +64,22 @@ void optimalend(int arr[] , int n){
     }
 }
 
+int linear(int arr[] , int n , int x){      // linear search using stl functions; 
+    auto it = find(arr , arr+n , x);
+    if(it!= arr+n){
+    int indx = it-arr;
+    return indx;}
+    else
+    return -1;
+}
+
+int classiclinear(int arr[] , int n , int x){  // classic linear search u can tweak this according to condition of interviewer if he want last ocuring and all ocuring;
+    for(int i = 0 ;i < n ;i++){
+        if (arr[i] == x)
+        return i ;
+    }
+    return -1;
+}
 
 int main(){
     int n ;
@@ -77,7 +93,8 @@ int main(){
     // cout << "enter no of rptation you want : ";
     // cin >> d;
     // optimalleft( arr ,n , d);
-    optimalend(arr , n);
+    int indx = linear(arr , n , 10);
+    cout << indx << endl;
     for (int i = 0 ; i < n; i++){
         cout << arr[i] << " ";
     }
