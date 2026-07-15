@@ -53,6 +53,70 @@ vector<int> unionarray(vector <int> a , vector <int> b){  // optimal sol for uni
   return result;
 }
 
+vector <int> intersection (vector <int> a , vector <int> b){  // brute force sol for intersection of two array; tc = O(n1 * n2); sc = O(n2);
+  int n1 = a.size();
+  int n2  = b.size();
+  int visited[n2] = {0};
+  vector <int> ans;
+  for(int i = 0 ; i< n1 ; i++){
+    for(int j = 0 ; j<n2 ; j++){
+      if(a[i] == b[j] && visited[j] == 0 ){
+        ans.push_back(a[i]);
+        visited[j] = 1;
+        break;
+      }
+      if (b[j] > a[i]){
+        break;
+      }
+    }
+  }
+  return ans;
+}
+
+vector <int> optimalintersection (vector <int> a , vector <int> b){   // optimal sol for intersection of two sorted arrays
+  int n1 = a.size();
+  int n2 = b.size();
+  int i = 0;
+  int j = 0;
+  vector<int> ans;
+  while (i<n1 && j <n2){
+    if(a[i] >= b[j]){
+      if (a[i] == b[j] ){
+        ans.push_back(a[i]);
+        i++;
+    }
+    j++;
+  }
+  else{
+    i++;
+  }
+
+  }
+  return ans;
+}
+
+vector <int> cleanoptimalintersection (vector <int> a , vector <int> b){  // clean optimal sol for intersectiion of two sorted arrays; tc=O(n1 + n2); sc=O(1);
+  int n1 = a.size();
+  int n2 = b.size();
+  int i = 0;
+  int j = 0;
+  vector<int> ans;
+  while(i<n1 && j<n2){
+    if (a[i] < b[j]){
+      i++;
+    }
+    else if ( a[i] > b[j]){
+      j++;
+    }
+    else{
+      ans.push_back(a[i]);
+      i++;
+      j++;
+    }
+  }
+  return ans;
+}
+
 int main() {
     int n1, n2;
     cout << "Enter size of vector a: ";
@@ -71,9 +135,9 @@ int main() {
         cin >> b[i];
     }
 
-    vector<int> result = unionarray(a, b);
+    vector<int> result = optimalintersection(a, b);
 
-    cout << "Union of vectors: ";
+    cout << "Result : ";
     for (int x : result) cout << x << " ";  // this is ranfe base for loop 
     return 0;
 }
