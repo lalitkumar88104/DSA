@@ -23,7 +23,7 @@ void bruteleftd(int arr[] , int n , int d){     // brute sol for left array rota
     }
 }
 
-void optimalleft(int arr[] , int n , int d){       // optimal sol for left array rotation by d
+void optimalleft(int arr[] , int n , int d){       // optimal sol for left array rotation by d; tc = O(2n) ; sc = O(1);
     d = d%n;
     reverse(arr , arr +d);       // in array name of array work as iterator;
     reverse(arr + d , arr +n );
