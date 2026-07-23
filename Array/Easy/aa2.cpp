@@ -30,6 +30,8 @@ vector<int> unionarray(vector <int> a , vector <int> b){  // optimal sol for uni
         result.push_back(a[i]);
       }
       i++;
+
+      
     }
     else {
       if(result.empty() || b[j] != result.back()){
