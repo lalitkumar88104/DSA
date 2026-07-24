@@ -73,10 +73,10 @@ int optimal(int arr[] , int n, int k){  // tc = O(2n); sc = O(1);
 // better not exist
 // better sol of all +ve is the optimal sol for array contaning -ve , 0 , +ve we cant optimise any other sol for it;
 int main(){
-    int arr[] = {1, 2, 3, 1, 1, 1, 0,  2, 3};
+    int arr[] = {1};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 6;
+    int k = 0;
 
-    cout << "Longest subarray length with sum " << k << " is: " << better(arr, n, k) << endl;
+    cout << "Longest subarray length with sum " << k << " is: " << optimal(arr, n, k) << endl;
     return 0;
 }
