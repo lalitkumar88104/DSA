@@ -36,7 +36,7 @@ void better (int arr[] , int n){        // tc = O(2n); sc = O(1)
 // high+1 to n-1 : all are 2
 
 // basically from 0 to mid-1 are sorted and high +1 to n-1 is sorted only unsorted part is mid to high identify it and place it on its boundary where its belong from;
-void optimal (int arr[] , int n){
+void optimal (int arr[] , int n){       // tc = O(n); sc = O(1);
     int low = 0;
     int mid = 0;
     int high = n-1;
