@@ -2,4 +2,4 @@
 
 Here’s a quick visual guide for common array problem patterns 👇
 
-![Array Patterns](array_patterns.jpeg)
+![Array Patterns](array_pattern.jpeg)
