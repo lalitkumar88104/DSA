@@ -73,7 +73,7 @@ int optimal(int arr[] , int n, int k){  // tc = O(2n); sc = O(1);
 // better not exist
 // better sol of all +ve is the optimal sol for array contaning -ve , 0 , +ve we cant optimise any other sol for it;
 int main(){
-    int arr[] = {1};
+    int arr[] = {1 , 0};
     int n = sizeof(arr) / sizeof(arr[0]);
     int k = 0;
 
