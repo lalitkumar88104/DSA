@@ -26,7 +26,7 @@ void brute (int arr[] , int n){    // tc = O(2n) ; sc = O(n);
     }
 }
 
-// better will work only and only if there are even no of elements (ex n = 6,8,10) it will ot work fo odd (n = 3 , 5, 7)
+// better will work only and only if there are even no of elements (ex n = 6,8,10) it will not work fo odd (n = 3 , 5, 7)
 // better sol;
 void better(int arr[] , int n){   // tc = O(n) + O(2/n) ; sc = O (n);
     vector <int> positive;
