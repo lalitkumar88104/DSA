@@ -103,10 +103,31 @@ int striverbetter (vector <int> arr){
 
 // optimal ; 
 
+int optimal (vector <int> arr){
+    int n = arr.size();
+    int maxlength = 0;
+    unordered_set <int> st;
 
+    for (int i = 0; i<n; i++){
+        st.insert(arr[i]);
+    }
+
+    for(auto it : st){
+        if(st.find(it -1) == st.end()){
+            int x = it;
+            int count = 1;
+            while(st.find(x+1) != st.end()){
+                count++;
+                x= x+1;
+            }
+            maxlength = max (maxlength , count);
+        }
+    }
+    return maxlength;
+}
 
 int main(){
-    vector<int> arr ={102,4,100,101,3,2,1,1};
-    cout << better(arr);
+    vector<int> arr ={102,4,100,103,104,105,106,107,108,101,3,2,1,5,6,1};
+    cout << optimal(arr);
     return 0;
 }
