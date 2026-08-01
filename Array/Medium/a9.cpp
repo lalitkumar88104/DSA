@@ -103,10 +103,12 @@ int striverbetter (vector <int> arr){
 
 // optimal ; 
 
-int optimal (vector <int> arr){
+int optimal (vector <int> arr){         // tc = O(3n) ; sc = O(n)
     int n = arr.size();
     int maxlength = 0;
     unordered_set <int> st;
+
+    
 
     for (int i = 0; i<n; i++){
         st.insert(arr[i]);
