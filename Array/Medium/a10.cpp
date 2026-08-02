@@ -77,8 +77,8 @@ void better (vector<vector<int>> &matrix){          // tc = O(2*n*m) ; sc = (n+m
             //     }
             // }
 
-        if(row[i] || column[j] == 1){
-            matrix [i][j] = 9;
+        if(row[i] == 1|| column[j] == 1){
+            matrix [i][j] = 0;
         }
         }
     }
@@ -112,7 +112,7 @@ void optimal (vector<vector<int>> &matrix){         // tc = O(2*m*n ) ; sc = O(1
     }
     if(matrix[0][0] == 0){
         for(int j = 0 ; j<n ; j++){
-            matrix[0][j] = 7;
+            matrix[0][j] = 0;
         }
     }
     // cout << colo0 << " i am colo0" << endl; 
