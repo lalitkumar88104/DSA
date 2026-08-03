@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// tc = O(nlogn) ; sc = O(1) ; stabillity = unstable
 int fun(int arr[] ,int low ,int high){
 int pivot = low;
 int i= low ;

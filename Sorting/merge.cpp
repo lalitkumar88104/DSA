@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std; 
 
- void merge(int arr[] , int low , int mid , int high){
+ void merge(int arr[] , int low , int mid , int high){      // tc = O(nlogn) ; sc = O(n); stabillity = stable
         vector <int> temp ;
         int left = low ;
         int right = mid +1;

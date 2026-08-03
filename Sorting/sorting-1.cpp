@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selection_sort(int arr[], int n){
+void selection_sort(int arr[], int n){              // tc = O(n*n) ; sc = O(1) ; stabillity = unstable;
     for(int i =0 ; i<= n-2 ; i++){
         int minn = i;
         for(int k = i+1; k < n; k++){
@@ -14,7 +14,9 @@ void selection_sort(int arr[], int n){
     }
 }
 
-void bubble_sort(int arr[] ,int n){
+// bubble sort
+// tc = O(n*n) for worst case ; sc = O(1) ; stabillity = stable;
+void bubble_sort(int arr[] ,int n){ 
 for(int i = 0 ; i< n-1  ; i++){
     for(int k=0 ; k< n-i-1 ;k++){
         if(arr[k] > arr [k+1]){
@@ -26,6 +28,7 @@ for(int i = 0 ; i< n-1  ; i++){
 }
 }
 
+// tc = O(n) for best  case ; sc = O(1) ; stabillity = stable;
 void bubble_sort2(int arr[], int n){
     for(int i= n-1 ; i >=1 ; i--){
         bool swap = false;

@@ -10,7 +10,10 @@ ls.emplace_back(11);
 ls.push_front(0);
 ls.emplace_front(01);
 ls.insert(ls.end(),12);
-auto x=next(ls.begin(),2);          // to insert or erase at pos use next , prev , advamced
+auto x=next(ls.begin(),2);          // to insert or erase at pos use next , prev , advamced; next means after this 2 represent how many this ; it dosent change orignal itreator it creates new one 
+// for ex 
+// auto it = ls.begin();           // points to first element
+// auto newIt = next(it, 2);      // points to third element
 ls.insert(x,999);
 ls.insert(ls.begin(),{11 , 12}); 
 
