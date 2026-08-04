@@ -32,7 +32,7 @@ int optimal (vector<int> arr , int target){             // tc = O(n) ; sc = O(n)
     int count = 0;
     for(int i = 0 ; i<n ; i++){
         sum += arr[i];
-        if(prefixsum.find(sum - target) != prefixsum.end()){                // this if statement is not much important because map will return 0 if the search element is not present in map so count will end up with adding 0 that dosent effect if element is not present;
+        if(prefixsum.find(sum - target) != prefixsum.end()){               // this if statement is not much important because map will return 0 if the search element is not present in map so count will end up with adding 0 that dosent effect if element is not present;
             count += prefixsum[sum - target];
         }
         prefixsum[sum] += 1;
