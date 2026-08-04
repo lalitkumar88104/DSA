@@ -1,0 +1,1 @@
+// https://chatgpt.com/share/6a719efe-f6c0-83ee-8c35-f3b55783e42a visit this link for better understanding if you got confuse at any point
