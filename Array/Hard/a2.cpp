@@ -96,7 +96,7 @@ vector<int> optimal (vector<int> &nums){
 }
 
 int main(){
-    vector<int> arr = {11, 33, 33, 11, 33, 11 , 2 , 2, 2, 2, 11};
+    vector<int> arr = {2, 1, 1, 3, 1, 4, 2, 2};
     
 
     vector<int> ans = optimal(arr);
