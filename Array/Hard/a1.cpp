@@ -30,11 +30,38 @@ void pascal (int n){        // n = no of row; n th row of pascal triangle has n 
 
 // Pascal's triangle 3 = print pascal's triangle till nth row;
 
+// helper fun;
+    vector<int> row(int r) {
+        vector<int> result;
+        long long ans = 1;
+        result.push_back(ans);
+        for (int col = 1; col < r; col++) {
+            ans = ans * (r - col);
+            ans = ans / col;
+            result.push_back(ans);
+        }
+        return result;
+    }
+// main fun;
+    vector<vector<int>> pascalTriangleIII(int n) {
+        if (n == 0) return {{}};
+        vector<vector<int>> result;
+        for (int i = 1; i <= n; i++) {
+            result.emplace_back(row(i));
+        }
+        return result;
+    }
 
 
 int main(){
 int n = 5;
-pascal(6);
+vector<vector<int>> ans = pascalTriangleIII(6);
+for(const auto it : ans){
+    for( const auto x : it ){
+            cout << x << " ";
+    }
+    cout << endl;
+}
 // int result = nCr(6,1);
 // cout << result;
     return 0;
