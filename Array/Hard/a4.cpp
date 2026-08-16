@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-    //function to find quadruplets having sum equal to target
+    // 4 sum - function to find quadruplets having sum equal to target
     vector<vector<int>> brute (vector<int>& nums, int target) {             // tc = O(n^4) ; sc = O(2m)
         // Size of the array
         int n = nums.size(); 
