@@ -50,7 +50,7 @@ vector<int> a = {4, 2, 2, 6, 4};
     int k = 6; 
 
     // Function call to get the result
-    int ans = brute(a, k);
+    int ans = subarraysWithXorK(a, k);
   
     cout << "The number of subarrays with XOR k is: " << ans << "\n";
     return 0;
