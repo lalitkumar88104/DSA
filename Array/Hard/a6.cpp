@@ -3,6 +3,31 @@ using namespace std;
 
 // Merge overlapping subintervals;
 
+// brute force 
+
+vector<vector<int>> brute(vector<vector<int>>& arr){                // tc = O(nlogn) + O(2n) ; sc = O(n)
+    int n = arr.size();
+    vector<vector<int>> ans;
+    sort(arr.begin() , arr.end());
+    for(int i = 0 ; i<n ; i++){
+        int start = arr[i][0];
+        int end = arr[i][1];
+        if(!ans.empty() && end <= ans.back()[1]){
+            continue;
+        }
+        for(int j = i+1; j<n ; j++){
+            if(arr[j][0] <= end){
+                end = max(end , arr[j][1]);
+            }
+            else {
+                break;
+            }
+        }
+        ans.push_back({start , end});
+    }
+    return ans;
+}
+
 //  optimal also can reffer strivers version that is also good;
 
     vector<vector<int>> mergeOverlap(vector<vector<int>>& arr) {                // tc = O(nlogn) + O(n) ; sc = O(n);
@@ -60,7 +85,7 @@ int main(){
         vector<vector<int>> arr = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};  // Example input
     
     // Output the merged intervals
-    vector<vector<int>> result = striver(arr);
+    vector<vector<int>> result = brute(arr);
     for (const auto& interval : result) {
         cout << "[" << interval[0] << ", " << interval[1] << "] ";
     }
