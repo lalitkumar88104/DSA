@@ -1,12 +1,10 @@
-
-/*
-        optimal sol is pending ;
-*/
-
 #include<bits/stdc++.h>
 using namespace std;
 
 // merge two sorted arrays without using extra space;
+// there are two types :
+// 1. sort and place it in nums1 and nums2 according to there size;
+// 2. nums1 has size == n+m; sort both and merge it in single array nums1;
 
 // brute 
 // use extra space as merge sort;
@@ -83,9 +81,76 @@ using namespace std;
         }
     }
 
-// optimal;
+// better2;
 
 
+// using gap method derived from shell sorting which say that maintain gap and compare and swap and decrease gap by 2 after every iteration
+// please refer video for better understanding
+// Gap method (inspired by Shell Sort):
+// Treat nums1 + nums2 as one virtual array.
+// Compare elements gap positions apart, swap if needed,
+// then keep reducing the gap until gap = 1.
+
+
+    void better2(vector<int>& nums1, int m, vector<int>& nums2, int n) {         // tc = O (n+m(logn)) + (n+m) ; sc = O(1)
+        int len =  n + m ;
+        int gap = (len / 2) + ( len % 2);
+        while(gap > 0){
+            int left = 0;
+            int right = left + gap ;
+            while (right < len){
+                if(left < m && right < m){
+                    if(nums1[left] > nums1[right]){
+                        swap(nums1[left] , nums1[right]);
+                    }
+                     left++ , right++;
+                }
+                else if(left < m && right >= m){
+                    if(nums1[left] > nums2[right - m]){
+                        swap(nums1[left], nums2[right - m]);
+                    }
+                    left++ , right++;
+                }
+                else
+                {
+                    if(nums2[left-m] > nums2[right -m]){
+                        swap(nums2[left-m] , nums2[right - m]);
+                    }
+                    left++ , right++;
+                }
+                // ++left , ++right;
+            } 
+            if (gap == 1 ) return;
+
+            gap = (gap/2) + gap%2;
+        }
+    }
+
+
+    // optimal
+
+    void optimal(vector<int>& nums1, int m, vector<int>& nums2, int n){
+        int len = nums1.size() - 1;
+        int left = m-1;
+        int right = n-1;
+        while(left >= 0 && right >= 0){
+            if(nums1[left] > nums2[right]){
+                nums1[len] = nums1[left];
+                --len , -- left;
+            }
+            else {
+                nums1[len] = nums2[right];
+                --len , --right;
+            }
+        }
+        while (right >= 0){
+            nums1[len] = nums2[right];
+            len-- ; right--;
+        }
+    }
+
+
+    // better1 & better2 are optimal sol for 1st type;
 
 int main(){
 
@@ -94,8 +159,7 @@ int main(){
     int m = 4, n = 3;
 
 
-
-    brute(nums1, m, nums2, n);
+ optimal(nums1, m, nums2, n);
 
     // Output the merged arrays
     cout << "The merged arrays is:\n";
